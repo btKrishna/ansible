@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red67\green67\blue67;\red246\green246\blue246;\red49\green49\blue49;
+\red31\green118\blue44;\red6\green33\blue79;}
+{\*\expandedcolortbl;;\cssrgb\c33333\c33333\c33333;\cssrgb\c97255\c97255\c97255;\cssrgb\c25098\c25098\c25098;
+\cssrgb\c13333\c52549\c22745;\cssrgb\c1176\c18431\c38431;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl336\partightenfactor0
+
+\f0\b\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ---
+\f1\b0 \cf4 \strokec4 \
+\pard\pardeftab720\sl336\partightenfactor0
+
+\f0\b \cf4 -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Update web servers\cf4 \strokec4 \
+  
+\f0\b \cf5 \strokec5 hosts\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 webservers\cf4 \strokec4 \
+  
+\f0\b \cf5 \strokec5 remote_user\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 root\cf4 \strokec4 \
+\
+  
+\f0\b \cf5 \strokec5 tasks\cf4 \strokec4 :
+\f1\b0 \
+  
+\f0\b -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Ensure apache is at the latest version\cf4 \strokec4 \
+    
+\f0\b \cf5 \strokec5 ansible.builtin.yum\cf4 \strokec4 :
+\f1\b0 \
+      
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 httpd\cf4 \strokec4 \
+      
+\f0\b \cf5 \strokec5 state\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 latest\cf4 \strokec4 \
+  
+\f0\b -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Write the apache config file\cf4 \strokec4 \
+    
+\f0\b \cf5 \strokec5 ansible.builtin.template\cf4 \strokec4 :
+\f1\b0 \
+      
+\f0\b \cf5 \strokec5 src\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 /srv/httpd.j2\cf4 \strokec4 \
+      
+\f0\b \cf5 \strokec5 dest\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 /etc/httpd.conf\cf4 \strokec4 \
+\
+
+\f0\b -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Update db servers\cf4 \strokec4 \
+  
+\f0\b \cf5 \strokec5 hosts\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 databases\cf4 \strokec4 \
+  
+\f0\b \cf5 \strokec5 remote_user\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 root\cf4 \strokec4 \
+\
+  
+\f0\b \cf5 \strokec5 tasks\cf4 \strokec4 :
+\f1\b0 \
+  
+\f0\b -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Ensure postgresql is at the latest version\cf4 \strokec4 \
+    
+\f0\b \cf5 \strokec5 ansible.builtin.yum\cf4 \strokec4 :
+\f1\b0 \
+      
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 postgresql\cf4 \strokec4 \
+      
+\f0\b \cf5 \strokec5 state\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 latest\cf4 \strokec4 \
+  
+\f0\b -
+\f1\b0  
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 Ensure that postgresql is started\cf4 \strokec4 \
+    
+\f0\b \cf5 \strokec5 ansible.builtin.service\cf4 \strokec4 :
+\f1\b0 \
+      
+\f0\b \cf5 \strokec5 name\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 postgresql\cf4 \strokec4 \
+      
+\f0\b \cf5 \strokec5 state\cf4 \strokec4 :
+\f1\b0  \cf6 \strokec6 started\cf4 \strokec4 \
+}
